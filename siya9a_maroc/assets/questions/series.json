@@ -1,0 +1,23 @@
+[
+  {
+    "id": "01",
+    "title": "السلسلة 1 - الأولوية",
+    "subtitle": "قواعد أساسية",
+    "category": "priority",
+    "question_count": 5
+  },
+  {
+    "id": "02",
+    "title": "السلسلة 2 - السرعة",
+    "subtitle": "حدود السرعة",
+    "category": "speed",
+    "question_count": 5
+  },
+  {
+    "id": "03",
+    "title": "السلسلة 3 - الإشارات",
+    "subtitle": "علامات الطريق",
+    "category": "signs",
+    "question_count": 5
+  }
+]
