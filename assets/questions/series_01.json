@@ -75,18 +75,5 @@
     "explanation": "الحد القانوني في المغرب هو 0.5 جرام لكل لتر من الدم.",
     "category": "rules"
   }
-    {
-    "id": "q6",
-    "text": "had so2al lkhay haytham",
-    "text_fr": "À un carrefour sans signalisation, qui a la priorité ?",
-    "image": null,
-    "options": [
-"wach hatham katkteb haka "
-"wach katkteb bla h"
-      
-    ],
-    "correct": 2,
-    "explanation": "قاعدة الأولوية لليمين: تُعطى الأولوية للمركبة القادمة من جهة اليمين في التقاطعات التي لا توجد فيها إشارات.",
-    "category": "priority"
-  },
+
 ]
