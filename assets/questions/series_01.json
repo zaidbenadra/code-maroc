@@ -3,7 +3,7 @@
     "id": "q1",
     "text": "في تقاطع بدون إشارات، من له الأولوية؟",
     "text_fr": "A un carrefour sans signalisation, qui a la priorite ?",
-    "image": null,
+    "image": assets/images/q1.png,
     "options": [
       "المركبة القادمة من اليمين",
       "المركبة القادمة من اليسار",
