@@ -53,7 +53,7 @@ class _SeriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push('/quiz/\${series.id}'),
+      onTap: () => context.push('/quiz/' + series.id),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -84,8 +84,10 @@ class _SeriesCard extends StatelessWidget {
                 children: [
                   Text(series.title, style: Theme.of(context).textTheme.titleMedium),
                   const SizedBox(height: 3),
-                  Text('\${series.questionCount} سؤال · \${series.subtitle}',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  Text(
+                    series.questionCount.toString() + ' سؤال · ' + series.subtitle,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ],
               ),
             ),
@@ -96,8 +98,10 @@ class _SeriesCard extends StatelessWidget {
                   color: AppColors.success.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text('\$best/\${series.questionCount}',
-                    style: const TextStyle(color: AppColors.success, fontWeight: FontWeight.w600, fontSize: 13)),
+                child: Text(
+                  best.toString() + '/' + series.questionCount.toString(),
+                  style: const TextStyle(color: AppColors.success, fontWeight: FontWeight.w600, fontSize: 13),
+                ),
               ),
             const SizedBox(width: 8),
             const Icon(Icons.chevron_right, color: AppColors.textSec),

@@ -16,7 +16,7 @@ class AppRouter {
       GoRoute(path: '/series',  builder: (c, s) => const SeriesListScreen()),
       GoRoute(
         path: '/quiz/:seriesId',
-        builder: (c, s) => QuizScreen(seriesId: s.pathParameters['seriesId']!),
+        builder: (c, s) => QuizScreen(seriesId: s.params['seriesId']!),
       ),
       GoRoute(
         path: '/results',

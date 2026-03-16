@@ -24,10 +24,7 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _loading = true;
 
   @override
-  void initState() {
-    super.initState();
-    _load();
-  }
+  void initState() { super.initState(); _load(); }
 
   Future<void> _load() async {
     final qs = await QuestionRepository.loadSeriesQuestions(widget.seriesId);
@@ -61,7 +58,7 @@ class _QuizScreenState extends State<QuizScreen> {
     final pct = (_current + 1) / _questions.length;
     return Scaffold(
       appBar: AppBar(
-        title: Text('السؤال \${_current + 1} / \${_questions.length}'),
+        title: Text('السؤال ' + (_current + 1).toString() + ' / ' + _questions.length.toString()),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(

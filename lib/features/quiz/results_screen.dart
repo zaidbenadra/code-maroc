@@ -12,6 +12,7 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final int score   = extra['score'];
     final int total   = extra['total'];
+    final String seriesId = extra['seriesId'];
     final double pct  = score / total;
     final passed      = pct >= 0.75;
     final color       = passed ? AppColors.success : AppColors.error;
@@ -41,10 +42,14 @@ class ResultsScreen extends StatelessWidget {
                       center: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('\$score/\$total',
-                              style: TextStyle(color: color, fontWeight: FontWeight.w800, fontSize: 22)),
-                          Text('\${(pct * 100).toInt()}%',
-                              style: TextStyle(color: color.withOpacity(0.7), fontSize: 14)),
+                          Text(
+                            score.toString() + '/' + total.toString(),
+                            style: TextStyle(color: color, fontWeight: FontWeight.w800, fontSize: 22),
+                          ),
+                          Text(
+                            (pct * 100).toInt().toString() + '%',
+                            style: TextStyle(color: color.withOpacity(0.7), fontSize: 14),
+                          ),
                         ],
                       ),
                       progressColor: color,
@@ -52,8 +57,10 @@ class ResultsScreen extends StatelessWidget {
                       circularStrokeCap: CircularStrokeCap.round,
                     ),
                     const SizedBox(height: 18),
-                    Text(passed ? '🎉 أحسنت! اجتزت السلسلة' : '💪 حاول مجدداً',
-                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: color)),
+                    Text(
+                      passed ? '🎉 أحسنت! اجتزت السلسلة' : '💪 حاول مجدداً',
+                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: color),
+                    ),
                   ],
                 ),
               ),
@@ -79,10 +86,12 @@ class ResultsScreen extends StatelessWidget {
                       Icon(correct ? Icons.check_circle : Icons.cancel,
                           color: correct ? AppColors.success : AppColors.error, size: 20),
                       const SizedBox(width: 10),
-                      Expanded(child: Text('س\${i + 1}: \${q.text}',
-                          textAlign: TextAlign.right,
-                          maxLines: 2, overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.textPri))),
+                      Expanded(child: Text(
+                        'س' + (i + 1).toString() + ': ' + q.text,
+                        textAlign: TextAlign.right,
+                        maxLines: 2, overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.textPri),
+                      )),
                     ],
                   ),
                 );
@@ -94,7 +103,7 @@ class ResultsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               OutlinedButton(
-                onPressed: () => context.go('/quiz/\${extra['seriesId']}'),
+                onPressed: () => context.go('/quiz/' + seriesId),
                 child: const Text('إعادة المحاولة'),
               ),
             ],

@@ -22,7 +22,7 @@ class _ExamScreenState extends State<ExamScreen> {
   bool _answered = false;
   bool _loading = true;
   late Timer _timer;
-  int _secondsLeft = 40 * 60; // 40 min
+  int _secondsLeft = 40 * 60;
 
   @override
   void initState() { super.initState(); _load(); }
@@ -39,7 +39,7 @@ class _ExamScreenState extends State<ExamScreen> {
   String get _timerText {
     final m = _secondsLeft ~/ 60;
     final s = _secondsLeft % 60;
-    return '\${m.toString().padLeft(2, '0')}:\${s.toString().padLeft(2, '0')}';
+    return m.toString().padLeft(2, '0') + ':' + s.toString().padLeft(2, '0');
   }
 
   void _finish() {
@@ -80,7 +80,7 @@ class _ExamScreenState extends State<ExamScreen> {
             const SizedBox(width: 6),
             Text(_timerText, style: const TextStyle(color: AppColors.warning, fontWeight: FontWeight.w700)),
             const SizedBox(width: 14),
-            Text('س\${_current + 1}/\${_questions.length}'),
+            Text('س' + (_current + 1).toString() + '/' + _questions.length.toString()),
           ],
         ),
         bottom: PreferredSize(
@@ -94,7 +94,12 @@ class _ExamScreenState extends State<ExamScreen> {
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(20),
-                child: QuestionCard(question: _questions[_current], selected: _selected, answered: _answered, onAnswer: _onAnswer),
+                child: QuestionCard(
+                  question: _questions[_current],
+                  selected: _selected,
+                  answered: _answered,
+                  onAnswer: _onAnswer,
+                ),
               ),
             ),
             Padding(
