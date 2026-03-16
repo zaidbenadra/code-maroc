@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   static const bg        = Color(0xFF0D0D0D);
   static const surface   = Color(0xFF1A1A1A);
   static const card      = Color(0xFF222222);
-  static const accent    = Color(0xFF00E5BE);   // teal-mint
+  static const accent    = Color(0xFF00E5BE);
   static const accentDim = Color(0xFF00B89A);
   static const error     = Color(0xFFFF4D6A);
   static const success   = Color(0xFF00C98D);
@@ -19,6 +18,7 @@ class AppTheme {
   static ThemeData get darkTheme => ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.bg,
+    fontFamily: 'Arial',
     colorScheme: const ColorScheme.dark(
       background: AppColors.bg,
       surface: AppColors.surface,
@@ -26,16 +26,14 @@ class AppTheme {
       secondary: AppColors.accentDim,
       error: AppColors.error,
     ),
-    textTheme: GoogleFonts.cairoTextTheme(
-      const TextTheme(
-        displayLarge:  TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w700, fontSize: 28),
-        headlineMedium:TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 22),
-        titleLarge:    TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 18),
-        titleMedium:   TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w500, fontSize: 16),
-        bodyLarge:     TextStyle(color: AppColors.textPri, fontSize: 15),
-        bodyMedium:    TextStyle(color: AppColors.textSec, fontSize: 14),
-        labelLarge:    TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 15),
-      ),
+    textTheme: const TextTheme(
+      displayLarge:   TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w700, fontSize: 28),
+      headlineMedium: TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 22),
+      titleLarge:     TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 18),
+      titleMedium:    TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w500, fontSize: 16),
+      bodyLarge:      TextStyle(color: AppColors.textPri, fontSize: 15),
+      bodyMedium:     TextStyle(color: AppColors.textSec, fontSize: 14),
+      labelLarge:     TextStyle(color: AppColors.textPri, fontWeight: FontWeight.w600, fontSize: 15),
     ),
     cardColor: AppColors.card,
     dividerColor: AppColors.divider,
@@ -46,7 +44,7 @@ class AppTheme {
       iconTheme: IconThemeData(color: AppColors.textPri),
       titleTextStyle: TextStyle(
         color: AppColors.textPri, fontSize: 18,
-        fontWeight: FontWeight.w600, fontFamily: 'Cairo',
+        fontWeight: FontWeight.w600,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -55,7 +53,7 @@ class AppTheme {
         foregroundColor: AppColors.bg,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16, fontFamily: 'Cairo'),
+        textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
